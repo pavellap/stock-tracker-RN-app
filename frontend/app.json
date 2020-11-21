@@ -1,0 +1,12 @@
+{
+  "name": "stocksTracker",
+  "displayName": "stocksTracker",
+  "expo": {
+    "name": "stocksTracker",
+    "slug": "stocksTracker",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}

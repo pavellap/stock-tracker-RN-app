@@ -1,0 +1,3 @@
+*.pbxproj -text
+# Ignore all differences in line endings
+*  -crlf
