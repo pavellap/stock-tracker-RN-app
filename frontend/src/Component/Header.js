@@ -13,16 +13,15 @@ export default function({title}) {
 
 const styles = StyleSheet.create({
    root: {
-       paddingVertical: 40,
+       paddingTop: 60,
+       paddingBottom: 30,
        display: "flex",
        justifyContent: "center",
        width: "100%",
-       borderBottomWidth: 1,
-       borderBottomColor: 'red'
    },
    text: {
-       fontWeight: "600",
-       fontSize: 18,
+       fontWeight: "700",
+       fontSize: 22,
        textAlign: "center"
    }
 });

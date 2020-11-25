@@ -6,7 +6,7 @@ import Header from "./src/Component/Header";
 export default function App() {
     return (
         <View>
-            <Header title="Stocks tracker App"/>
+            <Header title="Stocks tracker Application"/>
         </View>
     );
 }
