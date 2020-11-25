@@ -1,21 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
+import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
+import Header from "./src/Component/Header";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text style={{color: "#ccc"}}>Hello world!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <View>
+            <Header title="Stocks tracker App"/>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'red',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
 });
