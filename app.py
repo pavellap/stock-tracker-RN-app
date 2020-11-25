@@ -1,8 +1,7 @@
-#  todo: basic flask app api setup (библиотеки подключи бля ежжи, братОК!)
-#  UPD: сука, пока писал это, ко мне в пиво муха залетела, суккккааааа
 from flask import Flask, redirect, render_template, request
 from flask_restful import Api, Resource, reqparse
 import random
+import db
 
 app = Flask(__name__)
 api = Api(app)
