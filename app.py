@@ -143,3 +143,4 @@ class Apitable(Resource):
 api.add_resource(Apitable, "/api-table/<int:id>")
 if __name__ == "__main__":
     app.run(debug=True)
+
