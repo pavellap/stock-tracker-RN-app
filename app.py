@@ -133,11 +133,11 @@ class Apitable(Resource):
                 "Name": values["Name"]
             }
             Table.insert_one(line)
-            return line, 201
+            return f"Line with id {id} successfully inserted ", 201
 
     def delete(self, id):
         Table.delete_one({'ID': id})
-        return f"Quote with id {id} is deleted.", 200
+        return f"Line with id {id} is deleted.", 200
 
 
 api.add_resource(Apitable, "/api-table/<int:id>")
