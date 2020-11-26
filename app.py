@@ -139,6 +139,6 @@ class Quote(Resource):
         return f"Quote with id {id} is deleted.", 200
 
 
-api.add_resource(Quote, "/ai-quotes", "/ai-quotes/", "/ai-quotes/<int:id>")
+api.add_resource(Quote, "/api-table", "/api-table/", "/api-table/<int:id>")
 if __name__ == "__main__":
     app.run(debug=True)
