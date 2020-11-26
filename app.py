@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, request
 from flask_restful import Api, Resource, reqparse
 import random
 from db import Table
+from bson.json_util import dumps
 
 app = Flask(__name__)
 api = Api(app)
@@ -100,10 +101,10 @@ ai_quotes = [
 ]
 
 
-class Quote(Resource):
+class Apitable(Resource):
     def get(self, id):
         try:
-            return Table.find_one({'ID': id}), 200
+            return dumps(Table.find_one({'ID': id})), 200
         except:
             return "Line not found", 404
 
@@ -115,7 +116,7 @@ class Quote(Resource):
             "Name": values["Name"]
         }
         try:
-            Table.update({'ID': id}, {set: line})
+            line = dumps(Table.update({'ID': id}, {set: line}))
             return line, 201
         except:
             return f"Line with id {id} already exists", 400
@@ -139,6 +140,6 @@ class Quote(Resource):
         return f"Quote with id {id} is deleted.", 200
 
 
-api.add_resource(Quote, "/api-table", "/api-table/", "/api-table/<int:id>")
+api.add_resource(Apitable, "/api-table/<int:id>")
 if __name__ == "__main__":
     app.run(debug=True)
