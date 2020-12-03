@@ -8,9 +8,9 @@ api = Api(app)
 
 
 class Apitable(Resource):
-    def get(self, id):
+    def get(self, limit):
         try:
-            return dumps(Table.find_one({'ID': id})), 200
+            return dumps(Table.find().limit(limit)), 200
         except:
             return "Line not found", 404
 
@@ -46,7 +46,7 @@ class Apitable(Resource):
         return f"Line with id {id} is deleted.", 200
 
 
-api.add_resource(Apitable, "/api-table/<int:id>")
+api.add_resource(Apitable, "/api-table/<int:limit>")
 if __name__ == "__main__":
     app.run(debug=True)
 
