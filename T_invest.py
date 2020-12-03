@@ -73,6 +73,3 @@ def main():
     stocks_count = get_stocks_count()
     stocks = enumerate_stocks(count=stocks_count)
     return stocks
-
-
-print(main())

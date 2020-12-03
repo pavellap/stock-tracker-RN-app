@@ -7,46 +7,24 @@ app = Flask(__name__)
 api = Api(app)
 
 
-class Apitable(Resource):
+class Info_short(Resource):
     def get(self, limit):
         try:
             return dumps(Table.find().limit(limit)), 200
         except:
-            return "Line not found", 404
+            return "Position not found", 404
 
-    def post(self, id):
-        parser = reqparse.RequestParser()
-        parser.add_argument("Name")
-        values = parser.parse_args()
-        line = {
-            "Name": values["Name"]
-        }
+
+class Info_long(Resource):
+    def get(self, ticker):
         try:
-            line = dumps(Table.update({'ID': id}, {set: line}))
-            return line, 201
+            return dumps(Table.find_one({'ticker': ticker})), 200
         except:
-            return f"Line with id {id} already exists", 400
-
-    def put(self, id):
-        parser = reqparse.RequestParser()
-        parser.add_argument("Name")
-        values = parser.parse_args()
-        if Table.find_one({'ID': id}):
-            return f"Line with id {id} already exists", 400
-        else:
-            line = {
-                "ID": id,
-                "Name": values["Name"]
-            }
-            Table.insert_one(line)
-            return f"Line with id {id} successfully inserted ", 201
-
-    def delete(self, id):
-        Table.delete_one({'ID': id})
-        return f"Line with id {id} is deleted.", 200
+            return "Position not found", 404
 
 
-api.add_resource(Apitable, "/api-table/<int:limit>")
+api.add_resource(Info_short, "/info-short/<int:limit>")
+api.add_resource(Info_long, "/info-long/<string:ticker>")
 if __name__ == "__main__":
     app.run(debug=True)
 
